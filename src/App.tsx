@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { Page1 } from './pages/Page1';
+import { Page2 } from './pages/Page2';
+import { Page3 } from './pages/Page3';
+import { AnimatedRoutes } from './components/AnimatedRoutes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MemoryRouter>
+    <AnimatedRoutes>
+      <Route element={<Page1 />} path='/' />
+      <Route element={<Page2 />} path='/page2' />
+      <Route element={<Page3 />} path='/page3' />
+    </AnimatedRoutes>
+    </MemoryRouter>
   );
 }
 
